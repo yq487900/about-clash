@@ -5,9 +5,49 @@
 # 注意规则在满足自己需求情况下，尽量做到精简，不要过度复杂，以免影响性能。
 # 跑裸核用户请自行去掉下方控制面板模块的注释。
 # 机场订阅
-proxy-providers:    
-  机场名:
-    url: "机场订阅链接"
+proxy-providers:
+  飞狗:
+    url: "http://10.10.1.10:3008/T3B9dgzBzdRbBF8Aqx7P/download/feigou?target=ClashMeta"
+    type: http
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 60
+    proxy: Direct
+
+  赔钱:
+    url: "http://10.10.1.10:3008/T3B9dgzBzdRbBF8Aqx7P/download/peiqianjicahng?target=ClashMeta"
+    type: http
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 60
+    proxy: Direct
+
+  Danke Cloud:
+    url: "http://10.10.1.10:3008/T3B9dgzBzdRbBF8Aqx7P/download/dankecloud?target=ClashMeta"
+    type: http
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 60
+    proxy: Direct
+    
+  山海:
+    url: "http://10.10.1.10:3008/T3B9dgzBzdRbBF8Aqx7P/download/shanhai?target=ClashMeta"
+    type: http
+    interval: 21600
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 60
+    proxy: Direct
+    
+  山茶花:
+    url: "http://10.10.1.10:3008/T3B9dgzBzdRbBF8Aqx7P/download/onrtaplink?target=ClashMeta"
     type: http
     interval: 21600
     health-check:
@@ -107,71 +147,82 @@ pr: &pr
     - Reject
 proxy-groups:
   # 策略分流组
-  - {name: 默认代理, type: select, proxies: [🔯 香港故转, 🔯 台湾故转, 🔯 日本故转, 🔯 新加坡故转, 🔯 美国故转, 🏡 家宽节点, 🧑‍🦽 低倍节点, ♻️ 全部自动, 🌐 全部手动, Direct, Reject]}
+  - {name: 默认代理,  type: select, proxies: [🔯 香港故转, 🔯 台湾故转, 🔯 日本故转, 🔯 新加坡故转, 🔯 美国故转, 🏡 家宽节点, 🧑‍🦽 低倍节点, ♻️ 全部自动, 🌐 全部手动, Direct, Reject]}
   # 应用分流组
-  - {name: YouTube, <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/YouTube.png"}
-  - {name: Google, <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Google.png"}
-  - {name: AI, <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/ChatGPT.png"}
-  - {name: GitHub, <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/GitHub.png"}
-  - {name: Apple, <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Apple_black.png"}
+  - {name: YouTube,   <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/YouTube.png"}
+  - {name: Google,    <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Google.png"}
+  - {name: AI,        <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/ChatGPT.png"}
+  - {name: GitHub,    <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/GitHub.png"}
+  - {name: Apple,     <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Apple_black.png"}
   - {name: Microsoft, <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Microsoft.png"}
-  - {name: TikTok, <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/TikTok.png"}
-  - {name: Telegram, <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Telegram.png"}
-  - {name: PayPal, <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/PayPal.png"}
-  - {name: NETFLIX, <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Netflix.png"}
-  - {name: TMDB, <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/tmdb.png"}
-  - {name: Steam, <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Steam.png"}
-  - {name: Game, <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Game.png"}
-  - {name: 广告拦截, type: select, proxies: [Reject], icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Adblock.png"}
-  - {name: 漏网之鱼, <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Global.png"}
+  - {name: TikTok,    <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/TikTok.png"}
+  - {name: Telegram,  <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Telegram.png"}
+  - {name: PayPal,    <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/PayPal.png"}
+  - {name: NETFLIX,   <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Netflix.png"}
+  - {name: TMDB,      <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/tmdb.png"}
+  - {name: 影巢,      <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/HDhive2.png"}
+  - {name: Steam,     <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Steam.png"}
+  - {name: Game,      <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Game.png"}
+  - {name: AV,        <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Pornhub.png"}
+  - {name: 漏网之鱼,  <<: *pr,icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Global.png"}
+  - {name: 广告拦截,  type: select, proxies: [Reject], icon: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/yq487900/Icon/main/large/Adblock.png"}
   # 代理分组
   # 香港组
-  - {name: 🔯 香港故转, type: fallback, interval: 60, lazy: false, proxies: [🇭🇰 香港手动, ♻️ 香港自动]}
-  - {name: ♻️ 香港自动, type: url-test, include-all: true, tolerance: 20, interval: 60, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"}
-  - {name: 🇭🇰 香港手动, type: select, include-all: true, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"}
+  - {name: 🔯 香港故转,      type: fallback, interval: 60, lazy: false, proxies: [🇭🇰 香港手动, ♻️ 香港自动]}
+  - {name: ♻️ 香港自动,      type: url-test, include-all: true, tolerance: 20, interval: 60, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"}
+  - {name: 🇭🇰 香港手动,       type: select, include-all: true, filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"}
   # 台湾组
-  - {name: 🔯 台湾故转, type: fallback, interval: 60, lazy: false, proxies: [🇹🇼 台湾手动, ♻️ 台湾自动]}
-  - {name: ♻️ 台湾自动, type: url-test, include-all: true, tolerance: 20, interval: 60, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"}
-  - {name: 🇹🇼 台湾手动, type: select, include-all: true, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"}
+  - {name: 🔯 台湾故转,      type: fallback, interval: 60, lazy: false, proxies: [🇹🇼 台湾手动, ♻️ 台湾自动]}
+  - {name: ♻️ 台湾自动,      type: url-test, include-all: true, tolerance: 20, interval: 60, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"}
+  - {name: 🇹🇼 台湾手动,      type: select, include-all: true, filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"}
   # 日本组
-  - {name: 🔯 日本故转, type: fallback, interval: 60, lazy: false, proxies: [🇯🇵 日本手动, ♻️ 日本自动]}
-  - {name: ♻️ 日本自动, type: url-test, include-all: true, tolerance: 20, interval: 60, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"}
-  - {name: 🇯🇵 日本手动, type: select, include-all: true, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"}
+  - {name: 🔯 日本故转,      type: fallback, interval: 60, lazy: false, proxies: [🇯🇵 日本手动, ♻️ 日本自动]}
+  - {name: ♻️ 日本自动,      type: url-test, include-all: true, tolerance: 20, interval: 60, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"}
+  - {name: 🇯🇵 日本手动,       type: select, include-all: true, filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"}
   # 新加坡组
-  - {name: 🔯 新加坡故转, type: fallback, interval: 60, lazy: false, proxies: [🇸🇬 新加坡手动, ♻️ 新加坡自动]}
-  - {name: ♻️ 新加坡自动, type: url-test, include-all: true, tolerance: 20, interval: 60, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"}
-  - {name: 🇸🇬 新加坡手动, type: select, include-all: true, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"}
+  - {name: 🔯 新加坡故转,    type: fallback, interval: 60, lazy: false, proxies: [🇸🇬 新加坡手动, ♻️ 新加坡自动]}
+  - {name: ♻️ 新加坡自动,    type: url-test, include-all: true, tolerance: 20, interval: 60, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"}
+  - {name: 🇸🇬 新加坡手动,     type: select, include-all: true, filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"}
   # 美国组
-  - {name: 🔯 美国故转, type: fallback, interval: 60, lazy: false, proxies: [🇺🇲 美国手动, ♻️ 美国自动]}
-  - {name: ♻️ 美国自动, type: url-test, include-all: true, tolerance: 20, interval: 60, filter: "(?=.*(广美|US|美国|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"}
-  - {name: 🇺🇲 美国手动, type: select, include-all: true, filter: "(?=.*(广美|US|美国|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"}
+  - {name: 🔯 美国故转,      type: fallback, interval: 60, lazy: false, proxies: [🇺🇲 美国手动, ♻️ 美国自动]}
+  - {name: ♻️ 美国自动,      type: url-test, include-all: true, tolerance: 20, interval: 60, filter: "(?=.*(广美|US|美国|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"}
+  - {name: 🇺🇲 美国手动,      type: select, include-all: true, filter: "(?=.*(广美|US|美国|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"}
   # 家宽组
-  - {name: 🏡 家宽节点, type: select, include-all: true, filter: "(?=.*(家宽|家庭)).*$"}
+  - {name: 🏡 家宽节点,      type: select, include-all: true, filter: "(?=.*(家宽|家庭)).*$"}
   # 低倍组
-  - {name: 🧑‍🦽 低倍节点, type: select, proxies: [🇭🇰 低倍-香港负载, 🇹🇼 低倍-台湾负载, 🇯🇵 低倍-日本负载, 🇸🇬 低倍-新加坡负载, 🇺🇸 低倍-美国负载, 📦 低倍-其他手动, ]}
+  - {name: 🧑‍🦽 低倍节点,      type: select, proxies: [🇭🇰 香港低倍负载, 🇹🇼 台湾低倍负载, 🇯🇵 日本低倍负载, 🇸🇬 新加坡低倍负载, 🇺🇸 美国低倍负载, 🦽 其他低倍手动, 🐢 全部低倍手动]}
   # 轮询式负载均衡（多节点分摊流量，适合多节点带宽叠加）
-  - {name: 🇭🇰 低倍-香港负载, type: load-balance, include-all: true, interval: 60, strategy: round-robin, persist: true, filter: "(?=.*(0.8|0.5|0.5倍|0.5x|0.1|0.01))(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"}
-  - {name: 🇹🇼 低倍-台湾负载, type: load-balance, include-all: true, interval: 60, strategy: round-robin, persist: true, filter: "(?=.*(0.8|0.5|0.5倍|0.5x|0.1|0.01))(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"}
-  - {name: 🇯🇵 低倍-日本负载, type: load-balance, include-all: true, interval: 60, strategy: round-robin, persist: true, filter: "(?=.*(0.8|0.5|0.5倍|0.5x|0.1|0.01))(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"}
-  - {name: 🇸🇬 低倍-新加坡负载, type: load-balance, include-all: true, interval: 60, strategy: round-robin, persist: true, filter: "(?=.*(0.8|0.5|0.5倍|0.5x|0.1|0.01))(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"}
-  - {name: 🇺🇸 低倍-美国负载, type: load-balance, include-all: true, interval: 60, strategy: round-robin, persist: true, filter: "(?=.*(0.8|0.5|0.5倍|0.5x|0.1|0.01))(?=.*(广美|US|美国|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"}
-  - {name: 📦 低倍-其他手动, type: select, include-all: true, filter: "(?=.*(0.8|0.5|0.5倍|0.5x|0.1|0.01))^((?!.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|新加坡|🇸🇬|Singapore|广美|US|美国|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).)*$"}
+  - {name: 🇭🇰 香港低倍负载,  type: load-balance, include-all: true, interval: 60, strategy: round-robin, persist: true, filter: "(?=.*(0\\.[0-9]+|0倍|0x|零倍|零x))(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"}
+  - {name: 🇹🇼 台湾低倍负载,  type: load-balance, include-all: true, interval: 60, strategy: round-robin, persist: true, filter: "(?=.*(0\\.[0-9]+|0倍|0x|零倍|零x))(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"}
+  - {name: 🇯🇵 日本低倍负载,   type: load-balance, include-all: true, interval: 60, strategy: round-robin, persist: true, filter: "(?=.*(0\\.[0-9]+|0倍|0x|零倍|零x))(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"}
+  - {name: 🇸🇬 新加坡低倍负载, type: load-balance, include-all: true, interval: 60, strategy: round-robin, persist: true, filter: "(?=.*(0\\.[0-9]+|0倍|0x|零倍|零x))(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"}
+  - {name: 🇺🇸 美国低倍负载,   type: load-balance, include-all: true, interval: 60, strategy: round-robin, persist: true, filter: "(?=.*(0\\.[0-9]+|0倍|0x|零倍|零x))(?=.*(广美|US|美国|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"}
+  - {name: 🦽 其他低倍手动,  type: select, include-all: true, filter: "^(?!.*(香港|台湾|日本|新加坡|美国)).*(?=.*(0\\.[0-9]+|0倍|0x|零倍|零x)).*$"}
   # 全部组
-  - {name: ♻️ 全部自动, type: url-test, include-all: true, tolerance: 20, interval: 60, filter: "^((?!(Direct|Reject)).)*$"}
-  - {name: 🌐 全部手动, type: select, include-all: true}
+  - {name: ♻️ 全部自动,       type: url-test, include-all: true, tolerance: 20, interval: 60, filter: "^((?!(Direct|Reject)).)*$"}
+  - {name: 🌐 全部手动,       type: select, include-all: true}
+  - {name: 🐢 全部低倍手动,   type: select, include-all: true, filter: "(?=.*(0\\.[0-9]+|0倍|0x|零倍|零x)).*$"}
 # 规则匹配（rules）
 rules:
-  - RULE-SET,adblock_domain,广告拦截
+  - RULE-SET,adblock1_domain,广告拦截
+  - RULE-SET,adblock2_domain,广告拦截
   - DOMAIN-SUFFIX,xuedingtoken.com,Direct
-  - DOMAIN-SUFFIX,ubits.club,Direct
   - DOMAIN-SUFFIX,ptcafe.club,Direct
-  - DOMAIN-SUFFIX,paypal-mktg.com,PayPal
-  - DOMAIN-SUFFIX,paypal,PayPal
+  - DOMAIN-SUFFIX,ubits.club,Direct
+  - DOMAIN-SUFFIX,hdhive.com,影巢
+  - DOMAIN-SUFFIX,javlibrary.com,AV
+  - DOMAIN-SUFFIX,javten.com,AV
+  - DOMAIN-SUFFIX,javdb.com,AV
+  - DOMAIN-SUFFIX,javbus.com,AV
+  - DOMAIN-SUFFIX,missav.com,AV
+  - DOMAIN-SUFFIX,qichiyu.com,默认代理
   - RULE-SET,private_ip,Direct,no-resolve
   - RULE-SET,private_domain,Direct
   - RULE-SET,paypal_domain,PayPal
-  - DOMAIN-SUFFIX,qichiyu.com,默认代理
   - RULE-SET,proxylite,默认代理
+  - RULE-SET,av1_domain,AV
+  - RULE-SET,av2_domain,AV
+  - RULE-SET,av3_domain,AV
   - RULE-SET,ai,AI
   - RULE-SET,github_domain,GitHub
   - RULE-SET,tmdb_domain,TMDB
@@ -206,35 +257,38 @@ rule-anchor:
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 rule-providers: 
   fakeipfilter_domain: {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/wwqgtxx/clash-rules/release/fakeip-filter.mrs"}
-  private_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
-  proxylite: { <<: *class, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/rules/proxy.list"}
-  ai: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs" }
-  youtube_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
-  google_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
-  GoogleFCM_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/googlefcm.mrs"}
-  github_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
-  telegram_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"}
-  netflix_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"}
-  paypal_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs"}
-  onedrive_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs"}
-  microsoft_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
-  apple_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"}
-  apple-cn_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs"}
-  speedtest_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs"}
-  tiktok_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
-  geolocation-!cn: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
-  cn_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
-  tmdb_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tmdb.mrs"}
-  steam_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam.mrs"}
-  nintendo_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/nintendo.mrs"}
-  sony_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/sony.mrs"}
-  origin_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/origin.mrs"}
-  epicgames_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/epicgames.mrs"}
-  private_ip: {<<: *ip, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"}
-  cn_ip: { <<: *ip, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
-  google_ip: { <<: *ip, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
-  telegram_ip: { <<: *ip, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
-  netflix_ip: { <<: *ip, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
-  apple_ip: {<<: *ip, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs"}
-  adblock_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs"}
-  adblock_domain: { <<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/adguard.mrs"}
+  private_domain:      {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
+  ai:                  {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs" }
+  youtube_domain:      {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
+  google_domain:       {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
+  GoogleFCM_domain:    {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/googlefcm.mrs"}
+  github_domain:       {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
+  telegram_domain:     {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"}
+  netflix_domain:      {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"}
+  paypal_domain:       {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs"}
+  onedrive_domain:     {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs"}
+  microsoft_domain:    {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
+  apple_domain:        {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"}
+  apple-cn_domain:     {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs"}
+  speedtest_domain:    {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs"}
+  tiktok_domain:       {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
+  geolocation-!cn:     {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
+  cn_domain:           {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
+  tmdb_domain:         {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tmdb.mrs"}
+  steam_domain:        {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam.mrs"}
+  nintendo_domain:     {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/nintendo.mrs"}
+  sony_domain:         {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/sony.mrs"}
+  origin_domain:       {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/origin.mrs"}
+  epicgames_domain:    {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/epicgames.mrs"}
+  adblock1_domain:     {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs"}
+  adblock2_domain:     {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/adguard.mrs"}
+  av1_domain:          {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/javdb.mrs"}
+  av2_domain:          {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/javbus.mrs"}
+  av3_domain:          {<<: *domain, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/missav.mrs"}
+  private_ip:          {<<: *ip, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"}
+  cn_ip:               {<<: *ip, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
+  google_ip:           {<<: *ip, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
+  telegram_ip:         {<<: *ip, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
+  netflix_ip:          {<<: *ip, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
+  apple_ip:            {<<: *ip, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs"}
+  proxylite:           {<<: *class, url: "https://gh.xy96.de5.net/https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/rules/proxy.list"}
